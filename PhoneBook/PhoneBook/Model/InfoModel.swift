@@ -15,12 +15,16 @@ class Information: Object{
     let localRealm = try! Realm()
     
     @Persisted private var id = UUID()
-    @Persisted var index = Int()
+    @Persisted(primaryKey: true) var index: Int?
     
-    @Persisted var name: String
-    @Persisted var phoneNum: String
-    @Persisted var tag: String
+    @Persisted var name: String?
+    @Persisted var phoneNum: String?
+    @Persisted var tag: String?
     
+    convenience init(index: Int){
+        self.init()
+        self.index = index
+    }
     var toDictionary: [String: Any] {
         let dic: [String: Any] = ["index": index, "name": name, "PhoneNum": phoneNum, "tag":tag]
         return dic

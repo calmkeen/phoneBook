@@ -18,6 +18,7 @@
 		75F4B15128780D3A0048A990 /* PhoneBookUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F4B15028780D3A0048A990 /* PhoneBookUITestsLaunchTests.swift */; };
 		75F4B16228780ED40048A990 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F4B16128780ED40048A990 /* InfoModel.swift */; };
 		75F4B16428780EE60048A990 /* addInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F4B16328780EE60048A990 /* addInfoViewModel.swift */; };
+		75F4B166287C03D40048A990 /* RealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F4B165287C03D40048A990 /* RealmData.swift */; };
 		D0FDCBFF5C7C22720C949BB3 /* Pods_PhoneBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07EC0755F25E8CA86498AC43 /* Pods_PhoneBook.framework */; };
 		D16BCF00B0AF8CAE2F321A7E /* Pods_PhoneBook_PhoneBookUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1679B249070FDD6FE3819BB /* Pods_PhoneBook_PhoneBookUITests.framework */; };
 		FA667047B4AD1CCF01102FB0 /* Pods_PhoneBookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64F548EB3A27A13BC0CE1C57 /* Pods_PhoneBookTests.framework */; };
@@ -59,6 +60,7 @@
 		75F4B15028780D3A0048A990 /* PhoneBookUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBookUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		75F4B16128780ED40048A990 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
 		75F4B16328780EE60048A990 /* addInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addInfoViewModel.swift; sourceTree = "<group>"; };
+		75F4B165287C03D40048A990 /* RealmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmData.swift; sourceTree = "<group>"; };
 		8D97F446B390321197423E50 /* Pods-PhoneBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneBook.debug.xcconfig"; path = "Target Support Files/Pods-PhoneBook/Pods-PhoneBook.debug.xcconfig"; sourceTree = "<group>"; };
 		916ED64BEC40A9BEE6AE7B70 /* Pods-PhoneBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneBook.release.xcconfig"; path = "Target Support Files/Pods-PhoneBook/Pods-PhoneBook.release.xcconfig"; sourceTree = "<group>"; };
 		C64C6275C521D2DB6308F0B4 /* Pods-PhoneBookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneBookTests.release.xcconfig"; path = "Target Support Files/Pods-PhoneBookTests/Pods-PhoneBookTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				75F4B16328780EE60048A990 /* addInfoViewModel.swift */,
+				75F4B165287C03D40048A990 /* RealmData.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -194,7 +197,6 @@
 				DB4047DB7A53A07719C4F6F1 /* Pods-PhoneBookTests.debug.xcconfig */,
 				C64C6275C521D2DB6308F0B4 /* Pods-PhoneBookTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -442,6 +444,7 @@
 				75F4B12E28780D390048A990 /* AppDelegate.swift in Sources */,
 				75F4B13028780D390048A990 /* SceneDelegate.swift in Sources */,
 				75F4B16228780ED40048A990 /* InfoModel.swift in Sources */,
+				75F4B166287C03D40048A990 /* RealmData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
