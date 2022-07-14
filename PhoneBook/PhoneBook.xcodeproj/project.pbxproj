@@ -19,6 +19,7 @@
 		75F4B166287C03D40048A990 /* RealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F4B165287C03D40048A990 /* RealmData.swift */; };
 		75F4B168287FE1300048A990 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F4B167287FE1300048A990 /* MainView.swift */; };
 		75F4B16A287FED1F0048A990 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F4B169287FED1F0048A990 /* TableViewCell.swift */; };
+		75F4B16C287FFB340048A990 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F4B16B287FFB340048A990 /* InfoView.swift */; };
 		D0FDCBFF5C7C22720C949BB3 /* Pods_PhoneBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07EC0755F25E8CA86498AC43 /* Pods_PhoneBook.framework */; };
 		D16BCF00B0AF8CAE2F321A7E /* Pods_PhoneBook_PhoneBookUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1679B249070FDD6FE3819BB /* Pods_PhoneBook_PhoneBookUITests.framework */; };
 		FA667047B4AD1CCF01102FB0 /* Pods_PhoneBookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64F548EB3A27A13BC0CE1C57 /* Pods_PhoneBookTests.framework */; };
@@ -61,6 +62,7 @@
 		75F4B165287C03D40048A990 /* RealmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmData.swift; sourceTree = "<group>"; };
 		75F4B167287FE1300048A990 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		75F4B169287FED1F0048A990 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		75F4B16B287FFB340048A990 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		8D97F446B390321197423E50 /* Pods-PhoneBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneBook.debug.xcconfig"; path = "Target Support Files/Pods-PhoneBook/Pods-PhoneBook.debug.xcconfig"; sourceTree = "<group>"; };
 		916ED64BEC40A9BEE6AE7B70 /* Pods-PhoneBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneBook.release.xcconfig"; path = "Target Support Files/Pods-PhoneBook/Pods-PhoneBook.release.xcconfig"; sourceTree = "<group>"; };
 		C64C6275C521D2DB6308F0B4 /* Pods-PhoneBookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneBookTests.release.xcconfig"; path = "Target Support Files/Pods-PhoneBookTests/Pods-PhoneBookTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			children = (
 				75F4B13828780D3A0048A990 /* LaunchScreen.storyboard */,
 				75F4B167287FE1300048A990 /* MainView.swift */,
+				75F4B16B287FFB340048A990 /* InfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75F4B16C287FFB340048A990 /* InfoView.swift in Sources */,
 				75F4B16428780EE60048A990 /* addInfoViewModel.swift in Sources */,
 				75F4B168287FE1300048A990 /* MainView.swift in Sources */,
 				75F4B12E28780D390048A990 /* AppDelegate.swift in Sources */,

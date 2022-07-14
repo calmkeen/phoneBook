@@ -19,31 +19,34 @@ class MainView: UIViewController{
         let add = UIButton()
         add.setTitle("add", for: .normal)
         add.setTitleColor(.gray, for: .normal)
+        add.addTarget(self, action: #selector(addBtnClick), for: .touchUpInside)
         return add
     }()
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addView()
         make()
         configure()
-        
+        //tablevie 설정
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(TableViewCell.self, forCellReuseIdentifier: "CustomCell")
-
-        
-
-
     }
     
     
     func addView(){
         self.view.addSubview(tableView)
         tableView.addSubview(addBtn)
+    }
+    
+    @objc func addBtnClick(sender: UIButton){
+        let childVC = InformationView()
+        self.present(childVC, animated: true, completion: nil)
     }
     
     func make(){
@@ -55,12 +58,9 @@ class MainView: UIViewController{
             make.bottom.equalTo(self.view.safeAreaLayoutGuide)
             make.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
         }
-
-        
     }
     
     func configure(){
-        
     }
 }
 
@@ -73,9 +73,7 @@ extension MainView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as? TableViewCell else { return UITableViewCell() }
-
-                
-
                 return cell
     }
+    
 }
