@@ -18,7 +18,8 @@ class RealmData {
     
     //realm데이터 공간을 만들자
     func createRealm(){
-        // Add some tasks
+        
+        // Add some tasks (추가)
         let task = info
         try! realm.write {
             realm.add(info.self)
@@ -29,7 +30,7 @@ class RealmData {
         func onRealmOpened(){
             let tasks = realm.objects(Information.self)
             
-            //데이터 추가하면 업데이트
+            //데이터 추가하면 업데이트 (불러오기)
             func updateRealm(){
                 // All modifications to a realm must happen in a write block.
                 let taskToUpdate = tasks[0]
@@ -39,7 +40,7 @@ class RealmData {
                 }
             }
             
-            //realm에서의 삭제
+            //realm에서의 삭제(삭제)
             func RealmDelete(){
                 let taskToDelete = tasks[0]
                 try! realm.write {

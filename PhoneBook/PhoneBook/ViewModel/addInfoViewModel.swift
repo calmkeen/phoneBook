@@ -15,7 +15,6 @@ import RealmSwift
 //- 태그 (직접 태그 추가 가능하고, 직장 학교 이런거)
 //
 //전화번호 추가 (이름, 전화번호 필수, 태그는 선택사항)
-
 class addInfoViewModel: UIViewController{
     
     let info = Information()
