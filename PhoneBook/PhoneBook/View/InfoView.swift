@@ -66,10 +66,11 @@ class InformationView: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //realm = try! Realm()
+        realm = try! Realm()
         makeView()
         make()
         configure()
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
     }
     func makeView(){
@@ -123,9 +124,9 @@ class InformationView: UIViewController{
     @objc func saveBtnClick(sender: UIButton){
         info.name = self.nameField.text!
         info.phoneNum = self.phoneNumber.text!
-        let realm = try! Realm()
+        //let realm = try! Realm()
         try! realm.write {
-            realm.add(info)
+            realm.add(info, update: .all)
         }
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         let list = realm.objects(Information.self)

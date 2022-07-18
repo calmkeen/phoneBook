@@ -30,7 +30,7 @@ class addInfoViewModel: UIViewController{
     //뷰 불러오기
     override func viewDidLoad() {
         super.viewDidLoad()
-        realm = try! Realm()
+        //realm = try! Realm()
         realmCRUD.onRealmOpened()
     }
     

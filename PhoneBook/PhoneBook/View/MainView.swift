@@ -8,9 +8,11 @@
 import Foundation
 import UIKit
 import SnapKit
+import Realm
+import RealmSwift
 
 class MainView: UIViewController{
-   
+    
     var tableView: UITableView = {
         let tView = UITableView()
         return tView
@@ -36,6 +38,7 @@ class MainView: UIViewController{
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(TableViewCell.self, forCellReuseIdentifier: "CustomCell")
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
     
