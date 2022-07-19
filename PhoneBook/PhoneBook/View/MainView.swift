@@ -13,6 +13,11 @@ import RealmSwift
 
 class MainView: UIViewController{
     
+    var info = Information()
+    //var info: [Information] = []
+    //var info = [Information()]
+    
+
     var tableView: UITableView = {
         let tView = UITableView()
         return tView
@@ -36,11 +41,19 @@ class MainView: UIViewController{
         configure()
         //tablevie 설정
         tableView.delegate = self
-        tableView.dataSource = self
         tableView.register(TableViewCell.self, forCellReuseIdentifier: "CustomCell")
         print(Realm.Configuration.defaultConfiguration.fileURL!)
+        realmLoad()
+        print(info)
+        print(info.toDictionary)
     }
-    
+    func realmLoad(){
+        let realm = try! Realm()
+        let task = info
+        try! realm.write {
+            realm.add(task.self)
+        }
+    }
     
     func addView(){
         self.view.addSubview(tableView)
@@ -64,19 +77,39 @@ class MainView: UIViewController{
     }
     
     func configure(){
+        tableView.dataSource = self
+        tableView.rowHeight = 70
     }
+    // ============ 07.19. ============
+//        private func makeData() {
+//            for i in 0...1 {
+//                info.append(Information.init(
+//                    name: Information.phoneName[i],
+//                    phoneNum: info.phoneNum[i],
+//                ))
+//            }
+//        }
 }
 
 extension MainView: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return info.toDictionary.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as? TableViewCell else { return UITableViewCell() }
-                return cell
+        // ============ 07.19. ============
+        //cell.nameLabel.text = info[indexPath.row] as? String
+        //cell.phoneNumLabel.text = info[indexPath.row] as? String
+        cell.nameLabel.text = info.phoneName ?? ""
+        cell.phoneNumLabel.text = info.toDictionary
+        
+        print("test")
+        print(indexPath)
+        return cell
     }
+    
+    
     
 }

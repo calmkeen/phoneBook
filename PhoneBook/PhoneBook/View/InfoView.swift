@@ -122,7 +122,7 @@ class InformationView: UIViewController{
         
     }
     @objc func saveBtnClick(sender: UIButton){
-        info.name = self.nameField.text!
+        info.phoneName = self.nameField.text!
         info.phoneNum = self.phoneNumber.text!
         //let realm = try! Realm()
         try! realm.write {

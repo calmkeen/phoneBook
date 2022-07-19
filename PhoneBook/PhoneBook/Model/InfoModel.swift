@@ -10,6 +10,7 @@ import UIKit
 import Realm
 import RealmSwift
 
+
 class Information: Object{
     //@Persisted private var id = UUID()
     //처음에 프라이머리 키를 uuid위로 잡으려 했는데 realm은 아래처럼 잡아햐 한다고 doc에 나와 있어서 이렇게 변경
@@ -19,19 +20,21 @@ class Information: Object{
 //    @objc dynamic var name: String?
 //    @objc dynamic var phoneNum: String?
 //    @objc dynamic var tag: String?
-    @Persisted (primaryKey: true)var name: String?
+    @Persisted (primaryKey: true)var phoneName: String?
     @Persisted var phoneNum: String = ""
     @Persisted var tag: String?
     
+    
     convenience init(name: String){
         self.init()
-        self.name = name
+        self.phoneName = name
         self.phoneNum = phoneNum
         
     }
+    // ============ 07.19. ============
     //이거어떻게 쓸지 고민중
     var toDictionary: [String: Any] {
-        let dic: [String: Any] = ["index": index, "name": name, "PhoneNum": phoneNum, "tag":tag]
+        let dic: [String: Any] = ["index": index, "name": phoneName, "PhoneNum": phoneNum, "tag":tag]
         return dic
     }
 }

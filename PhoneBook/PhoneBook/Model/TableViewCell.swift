@@ -12,15 +12,28 @@ class TableViewCell: UITableViewCell {
     
     var identifier = "CustomCell"
 
-    private let label: UILabel = {
+    let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "상어상어"
         label.textColor = UIColor.gray
+        return label
+    }()
+    let phoneNumLabel: UILabel = {
+        let label = UILabel()
         return label
     }()
 
     func makeCell(){
-        self.addSubview(label)
+        self.addSubview(nameLabel)
+        self.addSubview(phoneNumLabel)
+    }
+    
+    func make() {
+        nameLabel.snp.makeConstraints{ make in
+            make.top.equalTo(0)
+        }
+        phoneNumLabel.snp.makeConstraints{ make in
+            make.top.equalTo(nameLabel.snp.bottom)
+        }
     }
     
     //코드 베이스 빌딩은 테마 초기화 해줘야 한다고 하네요
@@ -49,10 +62,6 @@ class TableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func make(){
-        label.snp.makeConstraints{ make in
-            make.center.equalTo(self.safeAreaLayoutGuide)
-        }
-    }
+
 
 }
