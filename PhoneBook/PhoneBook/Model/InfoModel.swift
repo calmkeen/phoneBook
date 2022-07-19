@@ -20,6 +20,8 @@ class Information: Object{
 //    @objc dynamic var name: String?
 //    @objc dynamic var phoneNum: String?
 //    @objc dynamic var tag: String?
+    // ============ 07.19. ============
+    //배열형식으로 바꿔야 출려가능할것 같다.
     @Persisted (primaryKey: true)var phoneName: String?
     @Persisted var phoneNum: String = ""
     @Persisted var tag: String?
