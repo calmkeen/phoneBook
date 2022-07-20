@@ -14,7 +14,10 @@ import RealmSwift
 class InformationView: UIViewController{
     
     var realm: Realm!
-    let info = Information()
+    let info = Info()
+    var content = Infodata()
+    
+    
     
     let infoView: UIView = {
         let view = UIView()
@@ -121,17 +124,27 @@ class InformationView: UIViewController{
     func configure(){
         
     }
+    func realmLoad(){
+            let listCount: Results<Infodata>!
+            listCount = realm.objects(Infodata.self)
+            let taskToUpdate = listCount[0]
+            try! realm.write {
+                realm.add(listCount.self, update: .all)
+            }
+    }
     @objc func saveBtnClick(sender: UIButton){
-        info.phoneName = self.nameField.text!
-        info.phoneNum = self.phoneNumber.text!
-        //let realm = try! Realm()
+        content.phoneName = self.nameField.text!
+        content.phoneNum = self.phoneNumber.text!
         try! realm.write {
-            realm.add(info, update: .all)
+            realm.add(content, update: .all)
         }
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        let list = realm.objects(Information.self)
-        print(list)
+        //let list = realm.objects(Infodata.self)
+        //print(list)
+        
+        realmLoad()
         //let childVC = MainView()
+        
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     

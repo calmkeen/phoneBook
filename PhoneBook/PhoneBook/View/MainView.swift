@@ -13,9 +13,10 @@ import RealmSwift
 
 class MainView: UIViewController{
     
-    var info = Information()
-    //var info: [Information] = []
-    //var info = [Information()]
+    let realm = try! Realm()
+    var info = Info()
+    var content = Infodata()
+    var listCount: Results<Infodata>!
     
 
     var tableView: UITableView = {
@@ -33,6 +34,10 @@ class MainView: UIViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        listCount = realm.objects(Infodata.self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +48,12 @@ class MainView: UIViewController{
         tableView.delegate = self
         tableView.register(TableViewCell.self, forCellReuseIdentifier: "CustomCell")
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        realmLoad()
+        
         print(info)
-        print(info.toDictionary)
+     
     }
     func realmLoad(){
-        let realm = try! Realm()
+        
         let task = info
         try! realm.write {
             realm.add(task.self)
@@ -64,7 +69,6 @@ class MainView: UIViewController{
         let childVC = InformationView()
         self.present(childVC, animated: true, completion: nil)
     }
-    
     func make(){
         
         tableView.snp.makeConstraints{ make in
@@ -94,7 +98,8 @@ class MainView: UIViewController{
 extension MainView: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return info.toDictionary.count
+        //return info.info.count
+        return listCount.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -102,11 +107,16 @@ extension MainView: UITableViewDelegate, UITableViewDataSource{
         // ============ 07.19. ============
         //cell.nameLabel.text = info[indexPath.row] as? String
         //cell.phoneNumLabel.text = info[indexPath.row] as? String
-        cell.nameLabel.text = info.phoneName ?? ""
-        cell.phoneNumLabel.text = info.toDictionary
         
-        print("test")
+        let row = listCount[indexPath.row]
+                cell.nameLabel.text = row.phoneName
+                cell.phoneNumLabel.text = row.phoneNum
+//        cell.nameLabel.text = content.phoneName ?? ""
+//        cell.phoneNumLabel.text = content.phoneName ?? ""
+        info.info.append(content)
+        
         print(indexPath)
+        
         return cell
     }
     

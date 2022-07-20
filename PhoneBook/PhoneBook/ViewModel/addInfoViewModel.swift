@@ -17,7 +17,7 @@ import RealmSwift
 //전화번호 추가 (이름, 전화번호 필수, 태그는 선택사항)
 class addInfoViewModel: UIViewController{
     
-    let info = Information()
+    let info = Info()
     let realmCRUD = RealmData()
     var realm: Realm!
     

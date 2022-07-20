@@ -15,10 +15,12 @@ class TableViewCell: UITableViewCell {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.gray
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     let phoneNumLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
