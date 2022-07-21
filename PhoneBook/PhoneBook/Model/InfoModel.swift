@@ -23,11 +23,5 @@ class Infodata: Object{
         self.phoneName = phoneName
         self.phoneNum = phoneNum
     }
-    // ============ 07.19. ============
-    //이거어떻게 쓸지 고민중
-    var toDictionary: [String: Any] {
-        let dic: [String: Any] = ["index": index, "name": phoneName, "PhoneNum": phoneNum, "tag":tag]
-        return dic
-    }
 }
 

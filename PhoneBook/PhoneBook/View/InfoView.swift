@@ -14,11 +14,8 @@ import RealmSwift
 class InformationView: UIViewController{
     
     var realm: Realm!
+    let content = Infodata()
     let info = Info()
-    var content = Infodata()
-    
-    
-    
     let infoView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -30,39 +27,39 @@ class InformationView: UIViewController{
         btn.addTarget(self, action: #selector(saveBtnClick), for: .touchUpInside)
         return btn
     }()
-    var nameField: UITextField = {
+    let nameField: UITextField = {
         let name = UITextField()
         name.backgroundColor = .lightGray
         name.placeholder = " 이 름 "
         return name
     }()
-    var phoneNumber: UITextField = {
+    let phoneNumber: UITextField = {
         let phoneNum = UITextField()
         phoneNum.placeholder = " 전화번호 "
         phoneNum.backgroundColor = .lightGray
         return phoneNum
     }()
-    var tag: UITextField = {
+    let tag: UITextField = {
         let tag = UITextField()
         tag.placeholder = "학교 및 직장"
         tag.backgroundColor = .lightGray
         return tag
     }()
-    var userimage: UIImageView = {
+    let userimage: UIImageView = {
         let image = UIImageView()
         let largeConfig = UIImage.SymbolConfiguration(pointSize: 140, weight: .bold, scale: .large)
         image.image = UIImage(systemName: "person.crop.circle.fill", withConfiguration: largeConfig)
         image.layer.cornerRadius = 15
         return image
     }()
-    var titleLabel: UILabel = {
+    let titleLabel: UILabel = {
         let title = UILabel()
         title.text = "새로운 연락처 "
         title.textColor = .gray
         title.textAlignment = .center
         return title
     }()
-    var cancelBtn: UIButton = {
+    let cancelBtn: UIButton = {
         let cancel = UIButton()
         return cancel
     }()
@@ -72,7 +69,7 @@ class InformationView: UIViewController{
         realm = try! Realm()
         makeView()
         make()
-        configure()
+//        configure()
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
     }
@@ -121,17 +118,17 @@ class InformationView: UIViewController{
             make.centerX.equalTo(0)
         }
     }
-    func configure(){
-        
-    }
-    func realmLoad(){
-            let listCount: Results<Infodata>!
-            listCount = realm.objects(Infodata.self)
-            let taskToUpdate = listCount[0]
-            try! realm.write {
-                realm.add(listCount.self, update: .all)
-            }
-    }
+//    func configure(){
+//
+//    }
+//    func realmLoad(){
+//            let listCount: Results<Infodata>!
+//            listCount = realm.objects(Infodata.self)
+//            let taskToUpdate = listCount[0]
+//            try! realm.write {
+//                realm.add(listCount.self, update: .all)
+//            }
+//    }
     @objc func saveBtnClick(sender: UIButton){
         content.phoneName = self.nameField.text!
         content.phoneNum = self.phoneNumber.text!
@@ -142,7 +139,7 @@ class InformationView: UIViewController{
         //let list = realm.objects(Infodata.self)
         //print(list)
         
-        realmLoad()
+        //realmLoad()
         //let childVC = MainView()
         
         self.presentingViewController?.dismiss(animated: true, completion: nil)

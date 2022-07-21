@@ -19,7 +19,6 @@ class RealmData {
     
     //realm데이터 공간을 만들자
     func createRealm(){
-        
         // Add some tasks (추가)
         let task = info
         try! realm.write {
@@ -36,11 +35,8 @@ class RealmData {
                 // All modifications to a realm must happen in a write block.
                 let taskToUpdate = tasks[0]
                 try! realm.write {
-                    // tasks.index = "1"
-                    
                 }
             }
-            
             //realm에서의 삭제(삭제)
             func RealmDelete(){
                 let taskToDelete = tasks[0]

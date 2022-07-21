@@ -13,17 +13,15 @@ import RealmSwift
 
 class MainView: UIViewController{
     
-    let realm = try! Realm()
-    var info = Info()
     var content = Infodata()
     var listCount: Results<Infodata>!
-    
-
-    var tableView: UITableView = {
+    let realm = try! Realm()
+    let info = Info()
+    let tableView: UITableView = {
         let tView = UITableView()
         return tView
     }()
-    var addBtn: UIButton = {
+    let addBtn: UIButton = {
         let add = UIButton()
         add.setTitle("add", for: .normal)
         add.setTitleColor(.gray, for: .normal)
@@ -38,7 +36,6 @@ class MainView: UIViewController{
         super.viewWillAppear(animated)
         listCount = realm.objects(Infodata.self)
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         addView()
@@ -47,30 +44,11 @@ class MainView: UIViewController{
         //tablevie 설정
         tableView.delegate = self
         tableView.register(TableViewCell.self, forCellReuseIdentifier: "CustomCell")
+        //realm값의 db주소를 받아오는 출력문
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        
-        print(info)
-     
-    }
-    func realmLoad(){
-        
-        let task = info
-        try! realm.write {
-            realm.add(task.self)
-        }
     }
     
-    func addView(){
-        self.view.addSubview(tableView)
-        tableView.addSubview(addBtn)
-    }
-    
-    @objc func addBtnClick(sender: UIButton){
-        let childVC = InformationView()
-        self.present(childVC, animated: true, completion: nil)
-    }
     func make(){
-        
         tableView.snp.makeConstraints{ make in
             make.edges.equalTo(self.view.safeAreaLayoutGuide)
         }
@@ -79,26 +57,31 @@ class MainView: UIViewController{
             make.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
         }
     }
-    
+    func addView(){
+        self.view.addSubview(tableView)
+        tableView.addSubview(addBtn)
+    }
     func configure(){
         tableView.dataSource = self
         tableView.rowHeight = 70
     }
-    // ============ 07.19. ============
-//        private func makeData() {
-//            for i in 0...1 {
-//                info.append(Information.init(
-//                    name: Information.phoneName[i],
-//                    phoneNum: info.phoneNum[i],
-//                ))
-//            }
-//        }
+
+    @objc func addBtnClick(sender: UIButton){
+        let childVC = InformationView()
+        self.present(childVC, animated: true, completion: nil)
+    }
+    
+    //    func realmLoad(){
+    //        let task = info
+    //        try! realm.write {
+    //            realm.add(task.self)
+    //        }
+    //    }
 }
 
 extension MainView: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return info.info.count
         return listCount.count
     }
     
@@ -111,12 +94,11 @@ extension MainView: UITableViewDelegate, UITableViewDataSource{
         let row = listCount[indexPath.row]
                 cell.nameLabel.text = row.phoneName
                 cell.phoneNumLabel.text = row.phoneNum
+//         ============ 07.20 ============
 //        cell.nameLabel.text = content.phoneName ?? ""
 //        cell.phoneNumLabel.text = content.phoneName ?? ""
         info.info.append(content)
-        
         print(indexPath)
-        
         return cell
     }
     
