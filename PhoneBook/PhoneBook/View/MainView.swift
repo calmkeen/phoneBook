@@ -17,6 +17,7 @@ class MainView: UIViewController{
     var listCount: Results<Infodata>!
     let realm = try! Realm()
     let info = Info()
+    
     let tableView: UITableView = {
         let tView = UITableView()
         return tView
@@ -46,6 +47,7 @@ class MainView: UIViewController{
         tableView.register(TableViewCell.self, forCellReuseIdentifier: "CustomCell")
         //realm값의 db주소를 받아오는 출력문
         print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
     }
     
     func make(){
@@ -84,20 +86,28 @@ extension MainView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listCount.count
     }
+    func reloadRows(at indexPaths: [IndexPath],
+                    with animation: UITableView.RowAnimation){}
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as? TableViewCell else { return UITableViewCell() }
         // ============ 07.19. ============
         //cell.nameLabel.text = info[indexPath.row] as? String
         //cell.phoneNumLabel.text = info[indexPath.row] as? String
-        
         let row = listCount[indexPath.row]
                 cell.nameLabel.text = row.phoneName
                 cell.phoneNumLabel.text = row.phoneNum
-//         ============ 07.20 ============
-//        cell.nameLabel.text = content.phoneName ?? ""
-//        cell.phoneNumLabel.text = content.phoneName ?? ""
-        info.info.append(content)
+                info.info.append(content)
+        
+//        if indexPath.row + 1 == listCount.count {
+//            tableView.reloadData()
+//            print("you reached end of the table")
+//
+//                }
+        //         ============ 07.20 ============
+        //        cell.nameLabel.text = content.phoneName ?? ""
+        //        cell.phoneNumLabel.text = content.phoneName ?? ""
         print(indexPath)
         return cell
     }

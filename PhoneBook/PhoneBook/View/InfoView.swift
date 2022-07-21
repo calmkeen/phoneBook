@@ -14,8 +14,10 @@ import RealmSwift
 class InformationView: UIViewController{
     
     var realm: Realm!
+    let table = MainView()
     let content = Infodata()
     let info = Info()
+    let contentView = ContentView()
     let infoView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -129,20 +131,19 @@ class InformationView: UIViewController{
 //                realm.add(listCount.self, update: .all)
 //            }
 //    }
-    @objc func saveBtnClick(sender: UIButton){
+    @objc
+    func saveBtnClick(sender: UIButton){
         content.phoneName = self.nameField.text!
         content.phoneNum = self.phoneNumber.text!
         try! realm.write {
             realm.add(content, update: .all)
         }
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        //let list = realm.objects(Infodata.self)
-        //print(list)
-        
-        //realmLoad()
-        //let childVC = MainView()
-        
+        table.tableView.reloadData()
+        let childVC = contentView
         self.presentingViewController?.dismiss(animated: true, completion: nil)
+        self.navigationController?.pushViewController(childVC, animated: true)
+        
     }
     
 }
