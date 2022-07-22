@@ -71,8 +71,11 @@ class MainView: UIViewController{
     @objc func addBtnClick(sender: UIButton){
         let childVC = InformationView()
         self.present(childVC, animated: true, completion: nil)
+        //let navigationController = UINavigationController(rootViewController: main)
+        childVC.modalPresentationStyle = .fullScreen
+        childVC.isNavigationBarHidden = true
+        //present(childVC, animated: true, completion:  nil)
     }
-    
     //    func realmLoad(){
     //        let task = info
     //        try! realm.write {
@@ -102,7 +105,7 @@ extension MainView: UITableViewDelegate, UITableViewDataSource{
         
 //        if indexPath.row + 1 == listCount.count {
 //            tableView.reloadData()
-//            print("you reached end of the table")
+//            print("you reached end of the table")¡
 //
 //                }
         //         ============ 07.20 ============
@@ -111,7 +114,4 @@ extension MainView: UITableViewDelegate, UITableViewDataSource{
         print(indexPath)
         return cell
     }
-    
-    
-    
 }

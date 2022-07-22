@@ -11,7 +11,7 @@ import SnapKit
 import Realm
 import RealmSwift
 
-class InformationView: UIViewController{
+class InformationView: UINavigationController{
     
     var realm: Realm!
     let table = MainView()
@@ -71,7 +71,7 @@ class InformationView: UIViewController{
         realm = try! Realm()
         makeView()
         make()
-//        configure()
+        //        configure()
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
     }
@@ -120,17 +120,17 @@ class InformationView: UIViewController{
             make.centerX.equalTo(0)
         }
     }
-//    func configure(){
-//
-//    }
-//    func realmLoad(){
-//            let listCount: Results<Infodata>!
-//            listCount = realm.objects(Infodata.self)
-//            let taskToUpdate = listCount[0]
-//            try! realm.write {
-//                realm.add(listCount.self, update: .all)
-//            }
-//    }
+    //    func configure(){
+    //
+    //    }
+    //    func realmLoad(){
+    //            let listCount: Results<Infodata>!
+    //            listCount = realm.objects(Infodata.self)
+    //            let taskToUpdate = listCount[0]
+    //            try! realm.write {
+    //                realm.add(listCount.self, update: .all)
+    //            }
+    //    }
     @objc
     func saveBtnClick(sender: UIButton){
         content.phoneName = self.nameField.text!
@@ -140,11 +140,15 @@ class InformationView: UIViewController{
         }
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         table.tableView.reloadData()
-        let childVC = contentView
+        //let childVC = contentView
+        //self.navigationController?.popViewController(animated: true)
+        //self.navigationController?.popViewController(animated: true)
         self.presentingViewController?.dismiss(animated: true, completion: nil)
-        self.navigationController?.pushViewController(childVC, animated: true)
-        
+        //self.navigationController?.pushViewController(childVC, animated: true)
+        navInfoView()
     }
-    
+    func navInfoView(){
+        let childVC = contentView
+        self.navigationController?.pushViewController(childVC, animated: true)
+    }
 }
-
