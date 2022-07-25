@@ -17,6 +17,7 @@ class MainView: UIViewController{
     var listCount: Results<Infodata>!
     let realm = try! Realm()
     let info = Info()
+    let contentView = ContentView()
     
     let tableView: UITableView = {
         let tView = UITableView()
@@ -70,18 +71,19 @@ class MainView: UIViewController{
 
     @objc func addBtnClick(sender: UIButton){
         let childVC = InformationView()
-        self.present(childVC, animated: true, completion: nil)
-        //let navigationController = UINavigationController(rootViewController: main)
-        childVC.modalPresentationStyle = .fullScreen
-        childVC.isNavigationBarHidden = true
-        //present(childVC, animated: true, completion:  nil)
+        let fakeRootView = UINavigationController(rootViewController: childVC)
+        self.present(fakeRootView, animated: true){
+            print("rootView CompletionHandler")
+        }
+//        let vc1 = InformationView()
+//        let childNavigation = UINavigationController(rootViewController: vc1)
+//        childNavigation.modalPresentationStyle = .fullScreen
+//        childNavigation.isNavigationBarHidden = true
+//        present(vc1, animated: true)
     }
-    //    func realmLoad(){
-    //        let task = info
-    //        try! realm.write {
-    //            realm.add(task.self)
-    //        }
-    //    }
+
+
+
 }
 
 extension MainView: UITableViewDelegate, UITableViewDataSource{

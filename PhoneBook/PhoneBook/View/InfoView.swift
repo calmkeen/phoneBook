@@ -11,7 +11,7 @@ import SnapKit
 import Realm
 import RealmSwift
 
-class InformationView: UINavigationController{
+class InformationView: UIViewController{
     
     var realm: Realm!
     let table = MainView()
@@ -131,6 +131,15 @@ class InformationView: UINavigationController{
     //                realm.add(listCount.self, update: .all)
     //            }
     //    }
+    func navInfoViewLoad(){
+//        let childVC = contentView
+//        self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.pushViewController(childVC, animated: true)
+        
+            let childVC = contentView
+            let fakeRootView = UINavigationController(rootViewController: childVC)
+            self.navigationController?.pushViewController(fakeRootView, animated: true)
+    }
     @objc
     func saveBtnClick(sender: UIButton){
         content.phoneName = self.nameField.text!
@@ -140,15 +149,15 @@ class InformationView: UINavigationController{
         }
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         table.tableView.reloadData()
-        //let childVC = contentView
-        //self.navigationController?.popViewController(animated: true)
-        //self.navigationController?.popViewController(animated: true)
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
-        //self.navigationController?.pushViewController(childVC, animated: true)
-        navInfoView()
-    }
-    func navInfoView(){
-        let childVC = contentView
-        self.navigationController?.pushViewController(childVC, animated: true)
+        self.presentingViewController?.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
+//        let vc2 = ContentView()
+//        let childNavigation = UINavigationController(rootViewController: vc2)
+//        childNavigation.modalPresentationStyle = .fullScreen
+//        childNavigation.isNavigationBarHidden = false
+//        self.navigationController?.pushViewController(childNavigation, animated: true)
+        
+        navInfoViewLoad()
+
     }
 }

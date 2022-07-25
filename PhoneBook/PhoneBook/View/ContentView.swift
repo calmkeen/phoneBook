@@ -11,7 +11,8 @@ import SwiftUI
 import SnapKit
 import RealmSwift
 
-class ContentView: UINavigationController{
+class ContentView: UINavigationController
+{
     
     let NaviContentView: UIView = {
         let view = UIView()
