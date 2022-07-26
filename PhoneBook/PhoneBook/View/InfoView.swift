@@ -132,13 +132,19 @@ class InformationView: UIViewController{
     //            }
     //    }
     func navInfoViewLoad(){
-            let childVC = contentView
-            //self.navigationController?.pushViewController(childVC, animated: true)
+        let childVC = contentView
+//        let fakeRootView = UINavigationController(rootViewController: childVC)
+//        self.present(fakeRootView, animated: true){
+//            print("rootView CompletionHandler")
+//        }
+
+//            self.navigationController?.pushViewController(childVC, animated: true)
         self.present(childVC, animated: true){
-            self.infoView.inputViewController?.dismiss(animated: true)
-        }
+//            //self.infoView.inputViewController?.dismiss(animated: true)
             childVC.modalPresentationStyle = .fullScreen
     }
+        }
+            
     @objc
     func saveBtnClick(sender: UIButton){
         content.phoneName = self.nameField.text!
@@ -148,7 +154,7 @@ class InformationView: UIViewController{
         }
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         table.tableView.reloadData()
-        self.presentingViewController?.dismiss(animated: true)
+        //self.presentingViewController?.dismiss(animated: true)
         self.presentedViewController?.dismiss(animated: false)
         //self.navigationController?.popViewController(animated: true)
         navInfoViewLoad()

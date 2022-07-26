@@ -22,16 +22,19 @@ class ContentView: UINavigationController
     let contentName: UILabel = {
         let name = UILabel()
         name.backgroundColor = .lightGray
+        name.text = "abc"
         return name
     }()
     let contentPN: UILabel = {
         let phoneNum = UILabel()
         phoneNum.backgroundColor = .lightGray
+        phoneNum.text = "bc"
         return phoneNum
     }()
     let contentTag: UILabel = {
         let tag = UILabel()
         tag.backgroundColor = .lightGray
+        tag.text = "abcddd"
         return tag
     }()
     let userImage: UIImageView = {
@@ -60,22 +63,22 @@ class ContentView: UINavigationController
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
         userImage.snp.makeConstraints{ make in
-            make.top.equalTo(0)
+            make.top.equalTo(0).offset(50)
             make.leading.trailing.equalTo(0)
             make.centerX.equalTo(0)
         }
         contentName.snp.makeConstraints{ make in
-            make.top.equalTo(userImage.snp.top)
+            make.top.equalTo(userImage.snp.bottom).offset(60)
             make.trailing.leading.equalTo(0)
             make.height.equalTo(40)
         }
         contentPN.snp.makeConstraints{ make in
-            make.top.equalTo(contentName.snp.bottom)
+            make.top.equalTo(contentName.snp.bottom).offset(2)
             make.trailing.leading.equalTo(0)
             make.height.equalTo(40)
         }
         contentTag.snp.makeConstraints{ make in
-            make.top.equalTo(contentPN.snp.bottom)
+            make.top.equalTo(contentPN.snp.bottom).offset(2)
             make.trailing.leading.equalTo(0)
             make.height.equalTo(40)
         }
