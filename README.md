@@ -18,8 +18,21 @@ realm db에 데이터를 넣은 모습
 
 07/26 
 
-![image](https://user-images.githubusercontent.com/78361650/180955341-f0118919-847f-4d26-b668-6d5538ef3ade.png)
+
+https://user-images.githubusercontent.com/78361650/180957453-1dc3568d-7dfb-431a-b1bb-fd5a65e6c876.mov
+
+
+
 
 1. contentview가 present로 밖에 뷰가 나오지 않는다.
 이에 관해 stackoverflow등 여러군데에 질의를 올려 검색중
 https://stackoverflow.com/questions/73118345/pushing-a-navigation-controller-is-not-supported-in-swift-move-from-modal-to-n
+2. tableReload 기능이 바로 동작하지 않는다.
+_ completion, btn clousre 호출 다안되었다.
+아래와 같이 빌드를 다시 할경우에만 새로 호출되어 table이 갱신된다.
+
+
+https://user-images.githubusercontent.com/78361650/180958121-82d11de4-e048-4304-aa04-6cb81353a345.mov
+
+navigation으로 이동을 고집하는 이유는 아이폰의 phoneBook과 동일하게 만들기 위해서 이다.
+
