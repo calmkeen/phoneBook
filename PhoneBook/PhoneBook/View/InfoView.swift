@@ -151,14 +151,14 @@ class InformationView: UIViewController{
         self.presentingViewController?.dismiss(animated: true)
         self.presentedViewController?.dismiss(animated: false)
         //self.navigationController?.popViewController(animated: true)
-        
+        navInfoViewLoad()
 //        let vc2 = ContentView()
 //        let childNavigation = UINavigationController(rootViewController: vc2)
 //        childNavigation.modalPresentationStyle = .fullScreen
 //        childNavigation.isNavigationBarHidden = false
 //        self.navigationController?.pushViewController(childNavigation, animated: true)
         
-        navInfoViewLoad()
+        
 
     }
 }
