@@ -132,13 +132,12 @@ class InformationView: UIViewController{
     //            }
     //    }
     func navInfoViewLoad(){
-//        let childVC = contentView
-//        self.navigationController?.popViewController(animated: true)
-//        self.navigationController?.pushViewController(childVC, animated: true)
-        
             let childVC = contentView
-            let fakeRootView = UINavigationController(rootViewController: childVC)
-            self.navigationController?.pushViewController(fakeRootView, animated: true)
+            //self.navigationController?.pushViewController(childVC, animated: true)
+        self.present(childVC, animated: true){
+            self.infoView.inputViewController?.dismiss(animated: true)
+        }
+            childVC.modalPresentationStyle = .fullScreen
     }
     @objc
     func saveBtnClick(sender: UIButton){
@@ -150,7 +149,9 @@ class InformationView: UIViewController{
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         table.tableView.reloadData()
         self.presentingViewController?.dismiss(animated: true)
-        self.navigationController?.popViewController(animated: true)
+        self.presentedViewController?.dismiss(animated: false)
+        //self.navigationController?.popViewController(animated: true)
+        
 //        let vc2 = ContentView()
 //        let childNavigation = UINavigationController(rootViewController: vc2)
 //        childNavigation.modalPresentationStyle = .fullScreen
