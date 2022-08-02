@@ -36,3 +36,8 @@ https://user-images.githubusercontent.com/78361650/180958121-82d11de4-e048-4304-
 
 navigation으로 이동을 고집하는 이유는 아이폰의 phoneBook과 동일하게 만들기 위해서 이다.
 
+tableView를 refresh하게 했다.
+
+
+https://user-images.githubusercontent.com/78361650/182298058-6e7cd5a3-f37c-45f8-8867-41d42d227aa3.mov
+
